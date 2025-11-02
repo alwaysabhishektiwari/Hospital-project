@@ -1,0 +1,66 @@
+/* NOTE: Yeh file normal CSS nahi hai. 
+  Yeh Tailwind CSS ke @apply syntax ka istemal karti hai.
+  Ise kaam karne ke liye aapke index.html mein Tailwind ki script file 
+  hona zaroori hai, jaisa ki maine pehle banaya tha.
+  In classes ka istemal karne ke liye, class ka naam (jaise 'nav-link-hover') 
+  apne HTML element ke class attribute mein add karein.
+*/
+
+/* Smooth scrolling ke liye */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Basic style to apply the font */
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Custom button styles */
+.btn {
+  @apply inline-block px-6 py-3 rounded-lg font-semibold text-center transition-transform duration-300 transform;
+}
+.btn-primary {
+  @apply bg-health-blue text-white shadow-md hover:bg-health-blue-dark hover:-translate-y-1;
+}
+.btn-secondary {
+  @apply bg-white text-health-blue shadow-md hover:bg-gray-50 hover:-translate-y-1;
+}
+.btn-outline {
+  @apply bg-transparent border-2 border-white text-white hover:bg-white hover:text-health-blue;
+}
+
+/* --- NYE ATTRACTIVE STYLES --- 
+*/
+
+/* Ise apne navigation links (<a> tags) par add karein.
+  Yeh link ke neeche ek underline effect dega.
+*/
+.nav-link-hover {
+  @apply relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-health-blue after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100;
+}
+
+/* Ise "Our Services" section ke teeno card (div) par add karein.
+  Yeh unpar ek naya shadow aur border effect dega.
+*/
+.service-card-hover {
+  @apply transition-all duration-300 hover:shadow-2xl hover:border-health-blue hover:border;
+}
+
+/* Ise "Meet Our Doctors" section ke chaaron card (div) par add karein.
+  Yeh image ko zoom karega aur shadow badhayega.
+*/
+.doctor-card-hover {
+  @apply overflow-hidden transition-all duration-300;
+}
+.doctor-card-hover img {
+  @apply transition-transform duration-300;
+}
+.doctor-card-hover:hover {
+  @apply shadow-2xl;
+}
+.doctor-card-hover:hover img {
+  @apply scale-105;
+}
+
